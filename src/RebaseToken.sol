@@ -190,6 +190,8 @@ contract RebaseToken {
         rawShares[fromAddr] -= shares;
         rawShares[toAddr] += shares;
         
+        // Note: totalShares remains constant as we're just moving shares between accounts
+        
         emit Transfer(fromAddr, toAddr, amount);
     }
     
