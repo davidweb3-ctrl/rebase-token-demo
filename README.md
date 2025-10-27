@@ -213,6 +213,50 @@ forge test --match-test "testRoundingEdgeCase1Wei"
 forge test --match-test "testRebaseOnlyOwner"
 ```
 
+### Sample Test Output
+
+```bash
+$ forge test --gas-report
+
+Ran 18 tests for test/RebaseToken.t.sol:RebaseTokenTest
+[PASS] testIndexMinimumThreshold() (gas: 21306678)
+[PASS] testInitialSupplyConsistency() (gas: 39004)
+[PASS] testInitialization() (gas: 97137)
+[PASS] testMultipleRebase() (gas: 156676)
+[PASS] testMultipleRebaseWithTransfers() (gas: 289838)
+[PASS] testRebaseFromOwner() (gas: 46086)
+[PASS] testRebaseOnlyOwner() (gas: 44444)
+[PASS] testRoundingEdgeCase1Wei() (gas: 186859)
+[PASS] testRoundingPrecision() (gas: 127331)
+[PASS] testRoundingWithSmallAmounts() (gas: 124313)
+[PASS] testSingleRebase() (gas: 111022)
+[PASS] testSingleRebaseSupplyConsistency() (gas: 67682)
+[PASS] testSupplyConsistencyAfterComplexOperations() (gas: 409056)
+[PASS] testTransferAfterRebase() (gas: 160361)
+[PASS] testTransferBeforeRebase() (gas: 119893)
+[PASS] testTransferFromAfterRebase() (gas: 223324)
+[PASS] testTransferOwnership() (gas: 103061)
+[PASS] testTransferOwnershipToZeroAddress() (gas: 32019)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 8.06ms (13.08ms CPU time)
+
+╭------------------------------------------+-----------------+-------+--------+-------+---------╮
+| src/RebaseToken.sol:RebaseToken Contract |                 |       |        |       |         |
++===============================================================================================+
+| Deployment Cost                          | Deployment Size |       |        |       |         |
+|------------------------------------------+-----------------+-------+--------+-------+---------|
+| 931370                                   | 4566            |       |        |       |         |
+|------------------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                            | Min             | Avg   | Median | Max   | # Calls |
+|------------------------------------------+-----------------+-------+--------+-------+---------|
+| rebase                                   | 23544           | 30237 | 30263  | 30263 | 708     |
+| transfer                                 | 54203           | 54264 | 54275  | 54287 | 9       |
+| balanceOf                                | 4848            | 4848  | 4848   | 4848  | 44      |
+| totalSupply                              | 4662            | 4662  | 4662   | 4662  | 23      |
+╰------------------------------------------+-----------------+-------+--------+-------+---------╯
+
+Ran 1 test suite in 12.86ms (8.06ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)
+```
+
 ## ⚡ Gas Optimization
 
 The contract is optimized for gas efficiency:
